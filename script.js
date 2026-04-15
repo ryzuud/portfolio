@@ -216,10 +216,12 @@ function setLanguage(lang) {
         flag.textContent = '🇬🇧';
         label.textContent = 'EN';
         toggle.title = 'Switch to English';
+        toggle.setAttribute('aria-label', 'Switch language to English');
     } else {
         flag.textContent = '🇫🇷';
         label.textContent = 'FR';
         toggle.title = 'Passer en français';
+        toggle.setAttribute('aria-label', 'Passer en français');
     }
 
     // Restart typewriter with new language texts
@@ -413,14 +415,16 @@ function initNavbar() {
     const linksList = document.getElementById('nav-links');
 
     toggle.addEventListener('click', () => {
-        toggle.classList.toggle('active');
+        const isActive = toggle.classList.toggle('active');
         linksList.classList.toggle('active');
+        toggle.setAttribute('aria-expanded', isActive);
     });
 
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             toggle.classList.remove('active');
             linksList.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
         });
     });
 }
