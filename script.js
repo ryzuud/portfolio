@@ -404,8 +404,10 @@ function initNavbar() {
 
         navLinks.forEach(link => {
             link.classList.remove('active');
+            link.removeAttribute('aria-current');
             if (link.getAttribute('href') === `#${current}`) {
                 link.classList.add('active');
+                link.setAttribute('aria-current', 'page');
             }
         });
     });
@@ -414,6 +416,12 @@ function initNavbar() {
     const toggle = document.getElementById('nav-toggle');
     const linksList = document.getElementById('nav-links');
 
+    const closeMobileMenu = () => {
+        toggle.classList.remove('active');
+        linksList.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+    };
+
     toggle.addEventListener('click', () => {
         const isActive = toggle.classList.toggle('active');
         linksList.classList.toggle('active');
@@ -421,11 +429,15 @@ function initNavbar() {
     });
 
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            toggle.classList.remove('active');
-            linksList.classList.remove('active');
-            toggle.setAttribute('aria-expanded', 'false');
-        });
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    // Keyboard accessibility for mobile menu
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && linksList.classList.contains('active')) {
+            closeMobileMenu();
+            toggle.focus(); // Return focus to the toggle button
+        }
     });
 }
 
