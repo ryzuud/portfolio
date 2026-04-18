@@ -406,11 +406,22 @@ function initNavbar() {
 
         navLinks.forEach(link => {
             link.classList.remove('active');
+            link.removeAttribute('aria-current');
             if (link.getAttribute('href') === `#${current}`) {
                 link.classList.add('active');
+                link.setAttribute('aria-current', 'page');
             }
         });
     });
+
+    // Set initial aria-current
+    const initialActive = document.querySelector('.nav-link.active');
+    if (initialActive) {
+        initialActive.setAttribute('aria-current', 'page');
+    } else if (navLinks.length > 0) {
+        // Fallback to first link if none active on load
+        navLinks[0].setAttribute('aria-current', 'page');
+    }
 
     // Mobile toggle
     const toggle = document.getElementById('nav-toggle');
@@ -428,6 +439,16 @@ function initNavbar() {
             linksList.classList.remove('active');
             toggle.setAttribute('aria-expanded', 'false');
         });
+    });
+
+    // Close mobile menu on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && linksList.classList.contains('active')) {
+            toggle.classList.remove('active');
+            linksList.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.focus();
+        }
     });
 }
 

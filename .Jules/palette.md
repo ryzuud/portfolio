@@ -4,3 +4,7 @@
 ## 2024-05-10 - Canvas Animations and prefers-reduced-motion
 **Learning:** Found that JavaScript-driven animations (like drawing on a `<canvas>`) are inherently immune to standard CSS `@media (prefers-reduced-motion: reduce)` rules that globally kill CSS transitions and keyframe animations. Users who request reduced motion at the OS level to avoid vestibular discomfort would still experience continuous particle animations.
 **Action:** Always verify `window.matchMedia('(prefers-reduced-motion: reduce)').matches` in JavaScript before instantiating heavy/continuous visual animations on the canvas, and hide the canvas element if the user prefers reduced motion.
+
+## 2026-04-18 - Decorative ASCII Art/Terminals and Screen Readers
+**Learning:** Found that decorative elements mimicking code or terminals (like a typewriter effect with a `>` prefix or simulated bash output) create a very confusing experience for screen reader users, as the assistive tech tries to read the literal punctuation and syntax out of context.
+**Action:** Always add `aria-hidden="true"` to wrapper elements of decorative terminal/code-like visuals that duplicate information already presented elsewhere or exist purely for aesthetic flair.
