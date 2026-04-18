@@ -559,3 +559,22 @@ document.addEventListener('DOMContentLoaded', () => {
     animateSkillBars();
     initScrollReveal();
 });
+
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        translations,
+        typewriterTexts,
+        setLanguage,
+        toggleLanguage,
+        ParticlesBackground,
+        Typewriter,
+        initNavbar,
+        animateStats,
+        animateSkillBars,
+        initScrollReveal,
+        initSmoothScroll,
+        getCurrentLang: () => currentLang,
+        setCurrentLang: (lang) => { currentLang = lang; }
+    };
+}
