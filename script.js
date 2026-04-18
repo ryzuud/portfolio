@@ -298,9 +298,10 @@ class ParticlesBackground {
                 const p2 = this.particles[j];
                 const dx = p.x - p2.x;
                 const dy = p.y - p2.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
+                const distSq = dx * dx + dy * dy;
 
-                if (dist < 120) {
+                if (distSq < 14400) {
+                    const dist = Math.sqrt(distSq);
                     this.ctx.beginPath();
                     this.ctx.strokeStyle = `rgba(0, 212, 255, ${0.06 * (1 - dist / 120)})`;
                     this.ctx.lineWidth = 0.5;
@@ -313,8 +314,9 @@ class ParticlesBackground {
             if (this.mouse.x && this.mouse.y) {
                 const dx = p.x - this.mouse.x;
                 const dy = p.y - this.mouse.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < 150) {
+                const distSq = dx * dx + dy * dy;
+                if (distSq < 22500) {
+                    const dist = Math.sqrt(distSq);
                     this.ctx.beginPath();
                     this.ctx.strokeStyle = `rgba(0, 212, 255, ${0.12 * (1 - dist / 150)})`;
                     this.ctx.lineWidth = 0.6;
