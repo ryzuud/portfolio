@@ -391,24 +391,32 @@ function initNavbar() {
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('.section, .hero');
 
+    let isTickActive = false;
     window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 50);
+        if (!isTickActive) {
+            window.requestAnimationFrame(() => {
+                navbar.classList.toggle('scrolled', window.scrollY > 50);
 
-        let current = '';
-        sections.forEach(section => {
-            const top = section.offsetTop - 120;
-            if (window.scrollY >= top) {
-                current = section.id;
-            }
-        });
+                let current = '';
+                sections.forEach(section => {
+                    const top = section.offsetTop - 120;
+                    if (window.scrollY >= top) {
+                        current = section.id;
+                    }
+                });
 
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+
+                isTickActive = false;
+            });
+            isTickActive = true;
+        }
+    }, { passive: true });
 
     // Mobile toggle
     const toggle = document.getElementById('nav-toggle');
