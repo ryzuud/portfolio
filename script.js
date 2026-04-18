@@ -204,7 +204,7 @@ function setLanguage(lang) {
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.dataset.i18n;
         if (dict[key] !== undefined) {
-            el.innerHTML = dict[key];
+            el.innerHTML = DOMPurify.sanitize(dict[key]);
         }
     });
 
