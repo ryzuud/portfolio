@@ -352,7 +352,8 @@ class Typewriter {
         this.texts = newTexts;
         this.textIndex = 0;
         this.charIndex = 0;
-        this.isDeleting = true;
+        this.isDeleting = false;
+        this.element.textContent = '';
         this.type();
     }
 
@@ -578,3 +579,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
     initSmoothScroll();
 });
+
+// Export for testing
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { Typewriter };
+}
