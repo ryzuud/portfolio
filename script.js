@@ -539,8 +539,13 @@ function initSmoothScroll() {
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
     // Particles
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const canvas = document.getElementById('particles-canvas');
-    if (canvas) new ParticlesBackground(canvas);
+    if (canvas && !prefersReducedMotion) {
+        new ParticlesBackground(canvas);
+    } else if (canvas) {
+        canvas.style.display = 'none'; // Hide canvas if not used
+    }
 
     // Typewriter
     const typewriterEl = document.getElementById('typewriter');
