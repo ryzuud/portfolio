@@ -429,6 +429,16 @@ function initNavbar() {
             toggle.setAttribute('aria-expanded', 'false');
         });
     });
+
+    // Close menu on Escape key press for accessibility
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && linksList.classList.contains('active')) {
+            toggle.classList.remove('active');
+            linksList.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.focus(); // Return focus to toggle button
+        }
+    });
 }
 
 
