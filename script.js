@@ -429,6 +429,15 @@ function initNavbar() {
             toggle.setAttribute('aria-expanded', 'false');
         });
     });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && linksList.classList.contains('active')) {
+            toggle.classList.remove('active');
+            linksList.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.focus();
+        }
+    });
 }
 
 
