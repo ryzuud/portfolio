@@ -1,758 +1,1119 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lounès COURIO — Portfolio</title>
-    <meta name="description"
-        content="Portfolio de Lounès COURIO — Étudiant ingénieur CyberData, spécialisé en cybersécurité et sciences des données. Data Scientist chez Orange Innovation.">
-    <meta name="keywords" content="Lounès COURIO, portfolio, cybersécurité, data science, Python, IA, ENSIBS">
-    <meta name="author" content="Lounès COURIO">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta
+      name="description"
+      content="Portfolio de Lounès COURIO — Étudiant ingénieur CyberData, spécialisé en cybersécurité et sciences des données. Data Scientist chez Orange Innovation."
+    />
+    <meta
+      name="keywords"
+      content="Lounès COURIO, portfolio, cybersécurité, data science, Python, IA, ENSIBS"
+    />
+    <meta name="author" content="Lounès COURIO" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
     <!-- Animated particles background -->
     <canvas id="particles-canvas"></canvas>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#hero" class="nav-logo">
-                <span class="logo-bracket">&lt;</span>LC<span class="logo-bracket">/&gt;</span>
-            </a>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#about" class="nav-link" data-i18n="nav.about">À propos</a></li>
-                <li><a href="#experience" class="nav-link" data-i18n="nav.experience">Expérience</a></li>
-                <li><a href="#education" class="nav-link" data-i18n="nav.education">Formation</a></li>
-                <li><a href="#skills" class="nav-link" data-i18n="nav.skills">Compétences</a></li>
-                <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
-            </ul>
-            <button class="lang-toggle" id="lang-toggle" aria-label="Switch language" title="Switch to English">
-                <span class="lang-flag" id="lang-flag">🇬🇧</span>
-                <span class="lang-label" id="lang-label">EN</span>
-            </button>
-            <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
+      <div class="nav-container">
+        <a href="#hero" class="nav-logo">
+          <span class="logo-bracket">&lt;</span>LC<span class="logo-bracket"
+            >/&gt;</span
+          >
+        </a>
+        <ul class="nav-links" id="nav-links">
+          <li>
+            <a href="#about" class="nav-link" data-i18n="nav.about">À propos</a>
+          </li>
+          <li>
+            <a href="#experience" class="nav-link" data-i18n="nav.experience"
+              >Expérience</a
+            >
+          </li>
+          <li>
+            <a href="#education" class="nav-link" data-i18n="nav.education"
+              >Formation</a
+            >
+          </li>
+          <li>
+            <a href="#skills" class="nav-link" data-i18n="nav.skills"
+              >Compétences</a
+            >
+          </li>
+          <li>
+            <a href="#contact" class="nav-link" data-i18n="nav.contact"
+              >Contact</a
+            >
+          </li>
+        </ul>
+        <button
+          class="lang-toggle"
+          id="lang-toggle"
+          aria-label="Switch language"
+          title="Switch to English"
+        >
+          <span class="lang-flag" id="lang-flag">🇬🇧</span>
+          <span class="lang-label" id="lang-label">EN</span>
+        </button>
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-label="Menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <div class="hero-bg-image"></div>
-        <div class="hero-content">
-            <div class="hero-avatar">
-                <img src="avatar.png" alt="Lounès COURIO" class="avatar-img">
-                <div class="avatar-ring"></div>
-                <div class="avatar-status"></div>
-            </div>
-            <div class="hero-text">
-                <p class="hero-greeting">
-                    <span class="greeting-wave">👋</span> <span data-i18n="hero.greeting">Bonjour, je suis</span>
-                </p>
-                <h1 class="hero-name">
-                    <span class="name-first">Lounès</span>
-                    <span class="name-last">COURIO</span>
-                </h1>
-                <div class="hero-typewriter">
-                    <span class="typewriter-prefix">></span>
-                    <span class="typewriter-text" id="typewriter"></span>
-                    <span class="typewriter-cursor">|</span>
-                </div>
-                <p class="hero-location">
-                    <svg class="icon-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Lanester, Bretagne, France
-                </p>
-                <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">
-                        <span data-i18n="hero.cta_contact">Me contacter</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
-                    </a>
-                    <a href="#experience" class="btn btn-outline">
-                        <span data-i18n="hero.cta_experience">Voir mon parcours</span>
-                    </a>
-                </div>
-            </div>
+      <div class="hero-bg-image"></div>
+      <div class="hero-content">
+        <div class="hero-avatar">
+          <img src="avatar.png" alt="Lounès COURIO" class="avatar-img" />
+          <div class="avatar-ring"></div>
+          <div class="avatar-status"></div>
         </div>
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="mouse-wheel"></div>
-            </div>
-            <span data-i18n="hero.scroll">Défiler</span>
+        <div class="hero-text">
+          <p class="hero-greeting">
+            <span class="greeting-wave">👋</span>
+            <span data-i18n="hero.greeting">Bonjour, je suis</span>
+          </p>
+          <h1 class="hero-name">
+            <span class="name-first">Lounès</span>
+            <span class="name-last">COURIO</span>
+          </h1>
+          <div class="hero-typewriter">
+            <span class="typewriter-prefix">></span>
+            <span class="typewriter-text" id="typewriter"></span>
+            <span class="typewriter-cursor">|</span>
+          </div>
+          <p class="hero-location">
+            <svg
+              class="icon-pin"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            Lanester, Bretagne, France
+          </p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary">
+              <span data-i18n="hero.cta_contact">Me contacter</span>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#experience" class="btn btn-outline">
+              <span data-i18n="hero.cta_experience">Voir mon parcours</span>
+            </a>
+          </div>
         </div>
+      </div>
+      <div class="scroll-indicator">
+        <div class="mouse">
+          <div class="mouse-wheel"></div>
+        </div>
+        <span data-i18n="hero.scroll">Défiler</span>
+      </div>
     </section>
 
     <!-- About Section -->
     <section class="section" id="about">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">&lt;à propos/&gt;</span>
-                <h2 class="section-title" data-i18n="about.title">Qui suis-je ?</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p class="about-intro" data-i18n="about.intro">
-                        Étudiant en ingénierie <span class="highlight">CyberData</span> à l'ENSIBS de Vannes,
-                        spécialisé en <span class="highlight">cybersécurité</span> et <span class="highlight">sciences
-                            des données</span>,
-                        passionné par l'innovation et les technologies avancées.
-                    </p>
-                    <p data-i18n="about.p2">
-                        Avec des expériences chez <strong>Orange Innovation</strong> et le <strong>Groupe Crédit
-                            Agricole</strong>,
-                        j'ai développé des compétences solides en développement d'applications web intégrant l'IA,
-                        en automatisation de processus et en analyse de données.
-                    </p>
-                    <p data-i18n="about.p3">
-                        Motivé par les défis technologiques, je m'engage à développer des solutions innovantes et
-                        performantes dans le domaine des données et de la cybersécurité.
-                    </p>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-card" data-aos="fade-up">
-                        <div class="stat-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                                <line x1="8" y1="21" x2="16" y2="21"></line>
-                                <line x1="12" y1="17" x2="12" y2="21"></line>
-                            </svg>
-                        </div>
-                        <div class="stat-number" data-target="3">0</div>
-                        <div class="stat-label" data-i18n="about.stat_exp">Expériences pro</div>
-                    </div>
-                    <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="stat-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                                <path d="M6 12v5c3 3 10 3 12 0v-5"></path>
-                            </svg>
-                        </div>
-                        <div class="stat-number" data-target="2">0</div>
-                        <div class="stat-label" data-i18n="about.stat_edu">Formations</div>
-                    </div>
-                    <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="stat-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="16 18 22 12 16 6"></polyline>
-                                <polyline points="8 6 2 12 8 18"></polyline>
-                            </svg>
-                        </div>
-                        <div class="stat-number" data-target="51">0</div>
-                        <div class="stat-label" data-i18n="about.stat_skills">Compétences</div>
-                    </div>
-                    <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="stat-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                            </svg>
-                        </div>
-                        <div class="stat-number" data-target="500">0</div>
-                        <div class="stat-label" data-i18n="about.stat_connections">Relations LinkedIn</div>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">&lt;à propos/&gt;</span>
+          <h2 class="section-title" data-i18n="about.title">Qui suis-je ?</h2>
+          <div class="section-line"></div>
         </div>
+        <div class="about-grid">
+          <div class="about-text">
+            <p class="about-intro" data-i18n="about.intro">
+              Étudiant en ingénierie <span class="highlight">CyberData</span> à
+              l'ENSIBS de Vannes, spécialisé en
+              <span class="highlight">cybersécurité</span> et
+              <span class="highlight">sciences des données</span>, passionné par
+              l'innovation et les technologies avancées.
+            </p>
+            <p data-i18n="about.p2">
+              Avec des expériences chez <strong>Orange Innovation</strong> et le
+              <strong>Groupe Crédit Agricole</strong>, j'ai développé des
+              compétences solides en développement d'applications web intégrant
+              l'IA, en automatisation de processus et en analyse de données.
+            </p>
+            <p data-i18n="about.p3">
+              Motivé par les défis technologiques, je m'engage à développer des
+              solutions innovantes et performantes dans le domaine des données
+              et de la cybersécurité.
+            </p>
+          </div>
+          <div class="about-stats">
+            <div class="stat-card" data-aos="fade-up">
+              <div class="stat-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <div class="stat-number" data-target="3">0</div>
+              <div class="stat-label" data-i18n="about.stat_exp">
+                Expériences pro
+              </div>
+            </div>
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="stat-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                  <path d="M6 12v5c3 3 10 3 12 0v-5"></path>
+                </svg>
+              </div>
+              <div class="stat-number" data-target="2">0</div>
+              <div class="stat-label" data-i18n="about.stat_edu">
+                Formations
+              </div>
+            </div>
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="stat-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <div class="stat-number" data-target="51">0</div>
+              <div class="stat-label" data-i18n="about.stat_skills">
+                Compétences
+              </div>
+            </div>
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+              <div class="stat-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <div class="stat-number" data-target="500">0</div>
+              <div class="stat-label" data-i18n="about.stat_connections">
+                Relations LinkedIn
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Experience Section -->
     <section class="section section-alt" id="experience">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">&lt;expérience/&gt;</span>
-                <h2 class="section-title" data-i18n="exp.title">Mon parcours professionnel</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="timeline">
-                <!-- Experience 1: Orange Innovation -->
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-marker">
-                        <div class="timeline-dot active-dot"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-card glass-card">
-                            <div class="card-header">
-                                <div class="company-logo orange-logo">
-                                    <img src="orange.png" alt="Orange" class="company-logo-img">
-                                </div>
-                                <div class="card-header-text">
-                                    <h3>Data Scientist</h3>
-                                    <p class="company-name">Orange Innovation</p>
-                                    <span class="badge badge-active" data-i18n="exp.badge_current">En cours</span>
-                                </div>
-                            </div>
-                            <div class="card-meta">
-                                <span class="meta-item">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                                    </svg>
-                                    <span data-i18n="exp.orange_dates">Sept. 2024 — Présent</span>
-                                </span>
-                                <span class="meta-item">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
-                                    Lannion, Bretagne
-                                </span>
-                                <span class="meta-item">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                                    </svg>
-                                    <span data-i18n="exp.orange_type">Alternance</span>
-                                </span>
-                            </div>
-                            <ul class="card-achievements">
-                                <li>
-                                    <span class="achievement-icon">🤖</span>
-                                    <span data-i18n="exp.orange_a1">Développement d'une page web avec <strong>Python et
-                                            IA</strong> intégrant des solutions d'intelligence artificielle</span>
-                                </li>
-                                <li>
-                                    <span class="achievement-icon">📊</span>
-                                    <span data-i18n="exp.orange_a2">Analyse et optimisation des
-                                        <strong>métadonnées</strong> grâce à des outils d'IA</span>
-                                </li>
-                                <li>
-                                    <span class="achievement-icon">🧠</span>
-                                    <span data-i18n="exp.orange_a3">Étude approfondie sur le <strong>comportement des
-                                            IA</strong> en fonction des prompts</span>
-                                </li>
-                                <li>
-                                    <span class="achievement-icon">🗣️</span>
-                                    <span data-i18n="exp.orange_a4">Analyse et évaluation de <strong>modules de
-                                            langue</strong> avec mesure du taux de confiance</span>
-                                </li>
-                            </ul>
-                            <div class="card-tags">
-                                <span class="tag">Python</span>
-                                <span class="tag">IA</span>
-                                <span class="tag">Prompting</span>
-                                <span class="tag">Git</span>
-                                <span class="tag">NLP</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Experience 2: Crédit Agricole CDD -->
-                <div class="timeline-item" data-aos="fade-left">
-                    <div class="timeline-marker">
-                        <div class="timeline-dot"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-card glass-card">
-                            <div class="card-header">
-                                <div class="company-logo ca-logo">
-                                    <img src="credit-agricole.png" alt="Crédit Agricole" class="company-logo-img">
-                                </div>
-                                <div class="card-header-text">
-                                    <h3 data-i18n="exp.ca1_title">Développeur SQL Server & PowerShell</h3>
-                                    <p class="company-name">Groupe Crédit Agricole</p>
-                                    <span class="badge badge-completed" data-i18n="exp.ca1_badge">CDD</span>
-                                </div>
-                            </div>
-                            <div class="card-meta">
-                                <span class="meta-item">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                                    </svg>
-                                    <span data-i18n="exp.ca1_dates">Juil. 2024 — Août 2024</span>
-                                </span>
-                                <span class="meta-item">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
-                                    Vannes, Bretagne
-                                </span>
-                                <span class="meta-item">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <polyline points="12 6 12 12 16 14"></polyline>
-                                    </svg>
-                                    <span data-i18n="exp.ca1_duration">2 mois</span>
-                                </span>
-                            </div>
-                            <ul class="card-achievements">
-                                <li>
-                                    <span class="achievement-icon">⏱️</span>
-                                    <span data-i18n="exp.ca1_a1">Automatisation du <strong>suivi des temps</strong> de
-                                        travail avec SQL Server et PowerShell</span>
-                                </li>
-                                <li>
-                                    <span class="achievement-icon">📋</span>
-                                    <span data-i18n="exp.ca1_a2"><strong>Stratification des problèmes</strong> pour
-                                        classification et priorisation</span>
-                                </li>
-                                <li>
-                                    <span class="achievement-icon">🔧</span>
-                                    <span data-i18n="exp.ca1_a3">Optimisation du code pour améliorer la
-                                        <strong>maintenabilité</strong></span>
-                                </li>
-                            </ul>
-                            <div class="card-tags">
-                                <span class="tag">SQL Server</span>
-                                <span class="tag">PowerShell</span>
-                                <span class="tag">SAS</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Experience 3: Crédit Agricole Stage -->
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-marker">
-                        <div class="timeline-dot"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-card glass-card">
-                            <div class="card-header">
-                                <div class="company-logo ca-logo">
-                                    <img src="credit-agricole.png" alt="Crédit Agricole" class="company-logo-img">
-                                </div>
-                                <div class="card-header-text">
-                                    <h3 data-i18n="exp.ca2_title">Développeur VBA</h3>
-                                    <p class="company-name">Groupe Crédit Agricole</p>
-                                    <span class="badge badge-completed" data-i18n="exp.ca2_badge">Stage</span>
-                                </div>
-                            </div>
-                            <div class="card-meta">
-                                <span class="meta-item">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                                    </svg>
-                                    <span data-i18n="exp.ca2_dates">Avr. 2024 — Juin 2024</span>
-                                </span>
-                                <span class="meta-item">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
-                                    Vannes, Bretagne
-                                </span>
-                                <span class="meta-item">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <polyline points="12 6 12 12 16 14"></polyline>
-                                    </svg>
-                                    <span data-i18n="exp.ca2_duration">3 mois</span>
-                                </span>
-                            </div>
-                            <ul class="card-achievements">
-                                <li>
-                                    <span class="achievement-icon">📈</span>
-                                    <span data-i18n="exp.ca2_a1">Automatisation de l'<strong>analyse de données</strong>
-                                        avec des macros VBA</span>
-                                </li>
-                                <li>
-                                    <span class="achievement-icon">🧾</span>
-                                    <span data-i18n="exp.ca2_a2"><strong>Génération automatique de factures</strong>
-                                        selon le type de client et service</span>
-                                </li>
-                                <li>
-                                    <span class="achievement-icon">🔄</span>
-                                    <span data-i18n="exp.ca2_a3"><strong>Transformation de données</strong> pour
-                                        intégration dans les systèmes existants</span>
-                                </li>
-                            </ul>
-                            <div class="card-tags">
-                                <span class="tag">VBA</span>
-                                <span class="tag">Excel</span>
-                                <span class="tag" data-i18n="exp.tag_automation">Automatisation</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">&lt;expérience/&gt;</span>
+          <h2 class="section-title" data-i18n="exp.title">
+            Mon parcours professionnel
+          </h2>
+          <div class="section-line"></div>
         </div>
+        <div class="timeline">
+          <!-- Experience 1: Orange Innovation -->
+          <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-marker">
+              <div class="timeline-dot active-dot"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-card glass-card">
+                <div class="card-header">
+                  <div class="company-logo orange-logo">
+                    <img
+                      src="orange.png"
+                      alt="Orange"
+                      class="company-logo-img"
+                    />
+                  </div>
+                  <div class="card-header-text">
+                    <h3>Data Scientist</h3>
+                    <p class="company-name">Orange Innovation</p>
+                    <span
+                      class="badge badge-active"
+                      data-i18n="exp.badge_current"
+                      >En cours</span
+                    >
+                  </div>
+                </div>
+                <div class="card-meta">
+                  <span class="meta-item">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect
+                        x="3"
+                        y="4"
+                        width="18"
+                        height="18"
+                        rx="2"
+                        ry="2"
+                      ></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span data-i18n="exp.orange_dates"
+                      >Sept. 2024 — Présent</span
+                    >
+                  </span>
+                  <span class="meta-item">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                      ></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Lannion, Bretagne
+                  </span>
+                  <span class="meta-item">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect
+                        x="2"
+                        y="7"
+                        width="20"
+                        height="14"
+                        rx="2"
+                        ry="2"
+                      ></rect>
+                      <path
+                        d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"
+                      ></path>
+                    </svg>
+                    <span data-i18n="exp.orange_type">Alternance</span>
+                  </span>
+                </div>
+                <ul class="card-achievements">
+                  <li>
+                    <span class="achievement-icon">🤖</span>
+                    <span data-i18n="exp.orange_a1"
+                      >Développement d'une page web avec
+                      <strong>Python et IA</strong> intégrant des solutions
+                      d'intelligence artificielle</span
+                    >
+                  </li>
+                  <li>
+                    <span class="achievement-icon">📊</span>
+                    <span data-i18n="exp.orange_a2"
+                      >Analyse et optimisation des
+                      <strong>métadonnées</strong> grâce à des outils d'IA</span
+                    >
+                  </li>
+                  <li>
+                    <span class="achievement-icon">🧠</span>
+                    <span data-i18n="exp.orange_a3"
+                      >Étude approfondie sur le
+                      <strong>comportement des IA</strong> en fonction des
+                      prompts</span
+                    >
+                  </li>
+                  <li>
+                    <span class="achievement-icon">🗣️</span>
+                    <span data-i18n="exp.orange_a4"
+                      >Analyse et évaluation de
+                      <strong>modules de langue</strong> avec mesure du taux de
+                      confiance</span
+                    >
+                  </li>
+                </ul>
+                <div class="card-tags">
+                  <span class="tag">Python</span>
+                  <span class="tag">IA</span>
+                  <span class="tag">Prompting</span>
+                  <span class="tag">Git</span>
+                  <span class="tag">NLP</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience 2: Crédit Agricole CDD -->
+          <div class="timeline-item" data-aos="fade-left">
+            <div class="timeline-marker">
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-card glass-card">
+                <div class="card-header">
+                  <div class="company-logo ca-logo">
+                    <img
+                      src="credit-agricole.png"
+                      alt="Crédit Agricole"
+                      class="company-logo-img"
+                    />
+                  </div>
+                  <div class="card-header-text">
+                    <h3 data-i18n="exp.ca1_title">
+                      Développeur SQL Server & PowerShell
+                    </h3>
+                    <p class="company-name">Groupe Crédit Agricole</p>
+                    <span
+                      class="badge badge-completed"
+                      data-i18n="exp.ca1_badge"
+                      >CDD</span
+                    >
+                  </div>
+                </div>
+                <div class="card-meta">
+                  <span class="meta-item">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect
+                        x="3"
+                        y="4"
+                        width="18"
+                        height="18"
+                        rx="2"
+                        ry="2"
+                      ></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span data-i18n="exp.ca1_dates"
+                      >Juil. 2024 — Août 2024</span
+                    >
+                  </span>
+                  <span class="meta-item">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                      ></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Vannes, Bretagne
+                  </span>
+                  <span class="meta-item">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span data-i18n="exp.ca1_duration">2 mois</span>
+                  </span>
+                </div>
+                <ul class="card-achievements">
+                  <li>
+                    <span class="achievement-icon">⏱️</span>
+                    <span data-i18n="exp.ca1_a1"
+                      >Automatisation du <strong>suivi des temps</strong> de
+                      travail avec SQL Server et PowerShell</span
+                    >
+                  </li>
+                  <li>
+                    <span class="achievement-icon">📋</span>
+                    <span data-i18n="exp.ca1_a2"
+                      ><strong>Stratification des problèmes</strong> pour
+                      classification et priorisation</span
+                    >
+                  </li>
+                  <li>
+                    <span class="achievement-icon">🔧</span>
+                    <span data-i18n="exp.ca1_a3"
+                      >Optimisation du code pour améliorer la
+                      <strong>maintenabilité</strong></span
+                    >
+                  </li>
+                </ul>
+                <div class="card-tags">
+                  <span class="tag">SQL Server</span>
+                  <span class="tag">PowerShell</span>
+                  <span class="tag">SAS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience 3: Crédit Agricole Stage -->
+          <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-marker">
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-card glass-card">
+                <div class="card-header">
+                  <div class="company-logo ca-logo">
+                    <img
+                      src="credit-agricole.png"
+                      alt="Crédit Agricole"
+                      class="company-logo-img"
+                    />
+                  </div>
+                  <div class="card-header-text">
+                    <h3 data-i18n="exp.ca2_title">Développeur VBA</h3>
+                    <p class="company-name">Groupe Crédit Agricole</p>
+                    <span
+                      class="badge badge-completed"
+                      data-i18n="exp.ca2_badge"
+                      >Stage</span
+                    >
+                  </div>
+                </div>
+                <div class="card-meta">
+                  <span class="meta-item">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect
+                        x="3"
+                        y="4"
+                        width="18"
+                        height="18"
+                        rx="2"
+                        ry="2"
+                      ></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span data-i18n="exp.ca2_dates">Avr. 2024 — Juin 2024</span>
+                  </span>
+                  <span class="meta-item">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                      ></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Vannes, Bretagne
+                  </span>
+                  <span class="meta-item">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span data-i18n="exp.ca2_duration">3 mois</span>
+                  </span>
+                </div>
+                <ul class="card-achievements">
+                  <li>
+                    <span class="achievement-icon">📈</span>
+                    <span data-i18n="exp.ca2_a1"
+                      >Automatisation de l'<strong>analyse de données</strong>
+                      avec des macros VBA</span
+                    >
+                  </li>
+                  <li>
+                    <span class="achievement-icon">🧾</span>
+                    <span data-i18n="exp.ca2_a2"
+                      ><strong>Génération automatique de factures</strong> selon
+                      le type de client et service</span
+                    >
+                  </li>
+                  <li>
+                    <span class="achievement-icon">🔄</span>
+                    <span data-i18n="exp.ca2_a3"
+                      ><strong>Transformation de données</strong> pour
+                      intégration dans les systèmes existants</span
+                    >
+                  </li>
+                </ul>
+                <div class="card-tags">
+                  <span class="tag">VBA</span>
+                  <span class="tag">Excel</span>
+                  <span class="tag" data-i18n="exp.tag_automation"
+                    >Automatisation</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Education Section -->
     <section class="section" id="education">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">&lt;formation/&gt;</span>
-                <h2 class="section-title" data-i18n="edu.title">Ma formation</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="education-grid">
-                <div class="edu-card glass-card" data-aos="fade-up">
-                    <div class="edu-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                            <path d="M6 12v5c3 3 10 3 12 0v-5"></path>
-                        </svg>
-                    </div>
-                    <div class="edu-badge" data-i18n="edu.badge_current">En cours</div>
-                    <h3 class="edu-school">ENSIBS</h3>
-                    <p class="edu-degree" data-i18n="edu.ensibs_degree">Diplôme d'ingénieur — CyberData</p>
-                    <p class="edu-dates" data-i18n="edu.ensibs_dates">Sept. 2024 — Sept. 2027</p>
-                    <div class="edu-description">
-                        <p data-i18n="edu.ensibs_desc">Formation en ingénierie spécialisée en cybersécurité et sciences
-                            des données.</p>
-                    </div>
-                    <div class="card-tags">
-                        <span class="tag" data-i18n="tag.cybersecurity">Cybersécurité</span>
-                        <span class="tag">Data Science</span>
-                        <span class="tag">Git</span>
-                        <span class="tag">Python</span>
-                    </div>
-                </div>
-                <div class="edu-card glass-card" data-aos="fade-up" data-aos-delay="150">
-                    <div class="edu-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                            <path d="M6 12v5c3 3 10 3 12 0v-5"></path>
-                        </svg>
-                    </div>
-                    <div class="edu-badge completed" data-i18n="edu.badge_completed">Terminé</div>
-                    <h3 class="edu-school">IUT de Vannes</h3>
-                    <p class="edu-degree" data-i18n="edu.iut_degree">D.U.T. — Science des Données (ex-STID)</p>
-                    <p class="edu-dates" data-i18n="edu.iut_dates">Sept. 2022 — Juin 2024</p>
-                    <div class="edu-description">
-                        <p data-i18n="edu.iut_desc">Formation en statistiques et traitement informatique des données.
-                        </p>
-                    </div>
-                    <div class="card-tags">
-                        <span class="tag" data-i18n="tag.statistics">Statistiques</span>
-                        <span class="tag">SQL</span>
-                        <span class="tag">R</span>
-                        <span class="tag">Talend</span>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">&lt;formation/&gt;</span>
+          <h2 class="section-title" data-i18n="edu.title">Ma formation</h2>
+          <div class="section-line"></div>
         </div>
+        <div class="education-grid">
+          <div class="edu-card glass-card" data-aos="fade-up">
+            <div class="edu-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 10 3 12 0v-5"></path>
+              </svg>
+            </div>
+            <div class="edu-badge" data-i18n="edu.badge_current">En cours</div>
+            <h3 class="edu-school">ENSIBS</h3>
+            <p class="edu-degree" data-i18n="edu.ensibs_degree">
+              Diplôme d'ingénieur — CyberData
+            </p>
+            <p class="edu-dates" data-i18n="edu.ensibs_dates">
+              Sept. 2024 — Sept. 2027
+            </p>
+            <div class="edu-description">
+              <p data-i18n="edu.ensibs_desc">
+                Formation en ingénierie spécialisée en cybersécurité et sciences
+                des données.
+              </p>
+            </div>
+            <div class="card-tags">
+              <span class="tag" data-i18n="tag.cybersecurity"
+                >Cybersécurité</span
+              >
+              <span class="tag">Data Science</span>
+              <span class="tag">Git</span>
+              <span class="tag">Python</span>
+            </div>
+          </div>
+          <div
+            class="edu-card glass-card"
+            data-aos="fade-up"
+            data-aos-delay="150"
+          >
+            <div class="edu-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 10 3 12 0v-5"></path>
+              </svg>
+            </div>
+            <div class="edu-badge completed" data-i18n="edu.badge_completed">
+              Terminé
+            </div>
+            <h3 class="edu-school">IUT de Vannes</h3>
+            <p class="edu-degree" data-i18n="edu.iut_degree">
+              D.U.T. — Science des Données (ex-STID)
+            </p>
+            <p class="edu-dates" data-i18n="edu.iut_dates">
+              Sept. 2022 — Juin 2024
+            </p>
+            <div class="edu-description">
+              <p data-i18n="edu.iut_desc">
+                Formation en statistiques et traitement informatique des
+                données.
+              </p>
+            </div>
+            <div class="card-tags">
+              <span class="tag" data-i18n="tag.statistics">Statistiques</span>
+              <span class="tag">SQL</span>
+              <span class="tag">R</span>
+              <span class="tag">Talend</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Skills Section -->
     <section class="section section-alt" id="skills">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">&lt;compétences/&gt;</span>
-                <h2 class="section-title" data-i18n="skills.title">Mes compétences</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-category glass-card" data-aos="fade-up">
-                    <div class="skill-category-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="16 18 22 12 16 6"></polyline>
-                            <polyline points="8 6 2 12 8 18"></polyline>
-                        </svg>
-                    </div>
-                    <h3 data-i18n="skills.cat_lang">Langages & Dev</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">Python</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" data-width="92"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">SQL</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" data-width="88"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">PowerShell</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" data-width="75"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">VBA</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" data-width="80"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">SAS</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" data-width="65"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category glass-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="skill-category-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2a10 10 0 1 0 10 10H12V2z"></path>
-                            <path d="M20.2 7.8A10 10 0 0 0 12 2v10h10a10 10 0 0 0-1.8-4.2z"></path>
-                        </svg>
-                    </div>
-                    <h3 data-i18n="skills.cat_data">Data & IA</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name" data-i18n="skills.data_science">Science des données</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" data-width="90"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name" data-i18n="skills.ai">Intelligence Artificielle</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" data-width="85"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name" data-i18n="skills.data_analysis">Analyse de données</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" data-width="90"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name" data-i18n="skills.nlp">NLP / Prompting IA</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" data-width="80"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category glass-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="skill-category-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        </svg>
-                    </div>
-                    <h3 data-i18n="skills.cat_cyber">Cybersécurité</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name" data-i18n="skills.system_security">Sécurité des systèmes</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" data-width="78"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name" data-i18n="skills.threat_analysis">Analyse de menaces</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" data-width="72"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name" data-i18n="skills.data_protection">Protection des données</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" data-width="80"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category glass-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="skill-category-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path
-                                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 data-i18n="skills.cat_tools">Outils & Méthodes</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">Git / GitHub</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" data-width="85"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">SQL Server</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" data-width="82"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Talend</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" data-width="70"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Microsoft Office</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" data-width="90"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">&lt;compétences/&gt;</span>
+          <h2 class="section-title" data-i18n="skills.title">
+            Mes compétences
+          </h2>
+          <div class="section-line"></div>
         </div>
+        <div class="skills-grid">
+          <div class="skill-category glass-card" data-aos="fade-up">
+            <div class="skill-category-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <h3 data-i18n="skills.cat_lang">Langages & Dev</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <span class="skill-name">Python</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="92"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">SQL</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="88"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">PowerShell</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="75"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">VBA</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="80"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">SAS</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="65"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="skill-category glass-card"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="skill-category-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M12 2a10 10 0 1 0 10 10H12V2z"></path>
+                <path
+                  d="M20.2 7.8A10 10 0 0 0 12 2v10h10a10 10 0 0 0-1.8-4.2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 data-i18n="skills.cat_data">Data & IA</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <span class="skill-name" data-i18n="skills.data_science"
+                  >Science des données</span
+                >
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="90"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name" data-i18n="skills.ai"
+                  >Intelligence Artificielle</span
+                >
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name" data-i18n="skills.data_analysis"
+                  >Analyse de données</span
+                >
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="90"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name" data-i18n="skills.nlp"
+                  >NLP / Prompting IA</span
+                >
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="80"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="skill-category glass-card"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="skill-category-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3 data-i18n="skills.cat_cyber">Cybersécurité</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <span class="skill-name" data-i18n="skills.system_security"
+                  >Sécurité des systèmes</span
+                >
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="78"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name" data-i18n="skills.threat_analysis"
+                  >Analyse de menaces</span
+                >
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="72"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name" data-i18n="skills.data_protection"
+                  >Protection des données</span
+                >
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="80"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="skill-category glass-card"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="skill-category-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                ></path>
+              </svg>
+            </div>
+            <h3 data-i18n="skills.cat_tools">Outils & Méthodes</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <span class="skill-name">Git / GitHub</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">SQL Server</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="82"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Talend</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="70"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Microsoft Office</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="90"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
     <section class="section" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">&lt;contact/&gt;</span>
-                <h2 class="section-title" data-i18n="contact.title">Me contacter</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3 data-i18n="contact.heading">Travaillons ensemble</h3>
-                    <p data-i18n="contact.desc">Vous avez un projet intéressant ou une opportunité ? N'hésitez pas à me
-                        contacter !</p>
-                    <div class="contact-links">
-                        <a href="https://www.linkedin.com/in/loun%C3%A8s-courio-b92452259" target="_blank"
-                            rel="noopener" class="contact-link glass-card">
-                            <div class="contact-link-icon linkedin-icon">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                                </svg>
-                            </div>
-                            <div class="contact-link-text">
-                                <span class="contact-link-label">LinkedIn</span>
-                                <span class="contact-link-value">Lounès COURIO</span>
-                            </div>
-                            <svg class="contact-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <line x1="7" y1="17" x2="17" y2="7"></line>
-                                <polyline points="7 7 17 7 17 17"></polyline>
-                            </svg>
-                        </a>
-                        <a href="mailto:couriolounes@gmail.com" class="contact-link glass-card">
-                            <div class="contact-link-icon email-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path
-                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                                    </path>
-                                    <polyline points="22,6 12,13 2,6"></polyline>
-                                </svg>
-                            </div>
-                            <div class="contact-link-text">
-                                <span class="contact-link-label">Email</span>
-                                <span class="contact-link-value">couriolounes@gmail.com</span>
-                            </div>
-                            <svg class="contact-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <line x1="7" y1="17" x2="17" y2="7"></line>
-                                <polyline points="7 7 17 7 17 17"></polyline>
-                            </svg>
-                        </a>
-                        <a href="tel:+33781548651" class="contact-link glass-card">
-                            <div class="contact-link-icon phone-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path
-                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <div class="contact-link-text">
-                                <span class="contact-link-label" data-i18n="contact.phone_label">Téléphone</span>
-                                <span class="contact-link-value">+33 7 81 54 86 51</span>
-                            </div>
-                            <svg class="contact-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <line x1="7" y1="17" x2="17" y2="7"></line>
-                                <polyline points="7 7 17 7 17 17"></polyline>
-                            </svg>
-                        </a>
-                        <div class="contact-link glass-card">
-                            <div class="contact-link-icon location-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg>
-                            </div>
-                            <div class="contact-link-text">
-                                <span class="contact-link-label" data-i18n="contact.location_label">Localisation</span>
-                                <span class="contact-link-value">Lanester, Bretagne, France</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-visual">
-                    <div class="terminal glass-card">
-                        <div class="terminal-header">
-                            <div class="terminal-dots">
-                                <span class="dot red"></span>
-                                <span class="dot yellow"></span>
-                                <span class="dot green"></span>
-                            </div>
-                            <span class="terminal-title">contact.sh</span>
-                        </div>
-                        <div class="terminal-body">
-                            <div class="terminal-line">
-                                <span class="terminal-prompt">$</span>
-                                <span class="terminal-command">whoami</span>
-                            </div>
-                            <div class="terminal-output">Lounès COURIO</div>
-                            <div class="terminal-line">
-                                <span class="terminal-prompt">$</span>
-                                <span class="terminal-command">cat formation.txt</span>
-                            </div>
-                            <div class="terminal-output" data-i18n="contact.term_edu">Ingénieur CyberData @ ENSIBS</div>
-                            <div class="terminal-line">
-                                <span class="terminal-prompt">$</span>
-                                <span class="terminal-command">cat poste.txt</span>
-                            </div>
-                            <div class="terminal-output">Data Scientist @ Orange Innovation</div>
-                            <div class="terminal-line">
-                                <span class="terminal-prompt">$</span>
-                                <span class="terminal-command">echo $PASSION</span>
-                            </div>
-                            <div class="terminal-output" data-i18n="contact.term_passion">Cybersécurité · Data Science ·
-                                IA</div>
-                            <div class="terminal-line">
-                                <span class="terminal-prompt">$</span>
-                                <span class="terminal-command typing" id="terminal-typing"
-                                    data-i18n="contact.term_collab">echo "Prêt à collaborer !"</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">&lt;contact/&gt;</span>
+          <h2 class="section-title" data-i18n="contact.title">Me contacter</h2>
+          <div class="section-line"></div>
         </div>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3 data-i18n="contact.heading">Travaillons ensemble</h3>
+            <p data-i18n="contact.desc">
+              Vous avez un projet intéressant ou une opportunité ? N'hésitez pas
+              à me contacter !
+            </p>
+            <div class="contact-links">
+              <a
+                href="https://www.linkedin.com/in/loun%C3%A8s-courio-b92452259"
+                target="_blank"
+                rel="noopener"
+                class="contact-link glass-card"
+              >
+                <div class="contact-link-icon linkedin-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    />
+                  </svg>
+                </div>
+                <div class="contact-link-text">
+                  <span class="contact-link-label">LinkedIn</span>
+                  <span class="contact-link-value">Lounès COURIO</span>
+                </div>
+                <svg
+                  class="contact-arrow"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </a>
+              <a
+                href="mailto:couriolounes@gmail.com"
+                class="contact-link glass-card"
+              >
+                <div class="contact-link-icon email-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    ></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div class="contact-link-text">
+                  <span class="contact-link-label">Email</span>
+                  <span class="contact-link-value">couriolounes@gmail.com</span>
+                </div>
+                <svg
+                  class="contact-arrow"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </a>
+              <a href="tel:+33781548651" class="contact-link glass-card">
+                <div class="contact-link-icon phone-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="contact-link-text">
+                  <span
+                    class="contact-link-label"
+                    data-i18n="contact.phone_label"
+                    >Téléphone</span
+                  >
+                  <span class="contact-link-value">+33 7 81 54 86 51</span>
+                </div>
+                <svg
+                  class="contact-arrow"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </a>
+              <div class="contact-link glass-card">
+                <div class="contact-link-icon location-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                    ></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div class="contact-link-text">
+                  <span
+                    class="contact-link-label"
+                    data-i18n="contact.location_label"
+                    >Localisation</span
+                  >
+                  <span class="contact-link-value"
+                    >Lanester, Bretagne, France</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contact-visual">
+            <div class="terminal glass-card">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <span class="terminal-title">contact.sh</span>
+              </div>
+              <div class="terminal-body">
+                <div class="terminal-line">
+                  <span class="terminal-prompt">$</span>
+                  <span class="terminal-command">whoami</span>
+                </div>
+                <div class="terminal-output">Lounès COURIO</div>
+                <div class="terminal-line">
+                  <span class="terminal-prompt">$</span>
+                  <span class="terminal-command">cat formation.txt</span>
+                </div>
+                <div class="terminal-output" data-i18n="contact.term_edu">
+                  Ingénieur CyberData @ ENSIBS
+                </div>
+                <div class="terminal-line">
+                  <span class="terminal-prompt">$</span>
+                  <span class="terminal-command">cat poste.txt</span>
+                </div>
+                <div class="terminal-output">
+                  Data Scientist @ Orange Innovation
+                </div>
+                <div class="terminal-line">
+                  <span class="terminal-prompt">$</span>
+                  <span class="terminal-command">echo $PASSION</span>
+                </div>
+                <div class="terminal-output" data-i18n="contact.term_passion">
+                  Cybersécurité · Data Science · IA
+                </div>
+                <div class="terminal-line">
+                  <span class="terminal-prompt">$</span>
+                  <span
+                    class="terminal-command typing"
+                    id="terminal-typing"
+                    data-i18n="contact.term_collab"
+                    >echo "Prêt à collaborer !"</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <span class="logo-bracket">&lt;</span>LC<span class="logo-bracket">/&gt;</span>
-                </div>
-                <p class="footer-text" data-i18n="footer.text">
-                    Conçu et développé avec <span class="footer-heart">❤️</span> par Lounès COURIO
-                </p>
-                <p class="footer-copyright" data-i18n="footer.copyright">© 2026 — Tous droits réservés</p>
-            </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <span class="logo-bracket">&lt;</span>LC<span class="logo-bracket"
+              >/&gt;</span
+            >
+          </div>
+          <p class="footer-text" data-i18n="footer.text">
+            Conçu et développé avec <span class="footer-heart">❤️</span> par
+            Lounès COURIO
+          </p>
+          <p class="footer-copyright" data-i18n="footer.copyright">
+            © 2026 — Tous droits réservés
+          </p>
         </div>
+      </div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.9/purify.min.js"></script>
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
