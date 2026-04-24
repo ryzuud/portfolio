@@ -4,3 +4,6 @@
 ## 2024-05-10 - Canvas Animations and prefers-reduced-motion
 **Learning:** Found that JavaScript-driven animations (like drawing on a `<canvas>`) are inherently immune to standard CSS `@media (prefers-reduced-motion: reduce)` rules that globally kill CSS transitions and keyframe animations. Users who request reduced motion at the OS level to avoid vestibular discomfort would still experience continuous particle animations.
 **Action:** Always verify `window.matchMedia('(prefers-reduced-motion: reduce)').matches` in JavaScript before instantiating heavy/continuous visual animations on the canvas, and hide the canvas element if the user prefers reduced motion.
+## 2024-05-20 - Syncing aria-current with active navigation states
+**Learning:** Found that visual indication of the current page/section via `active` classes in a scrollspy or single page app navigation doesn't convey context to screen readers unless `aria-current="page"` (or equivalent) is dynamically applied as well. Static navigation elements require dynamic attribute updates as the user scrolls or navigates.
+**Action:** Always ensure scrollspy scripts or routing logic dynamically syncs `aria-current` attributes to the active navigation link, while simultaneously removing it from inactive links.
