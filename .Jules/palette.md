@@ -4,3 +4,7 @@
 ## 2024-05-10 - Canvas Animations and prefers-reduced-motion
 **Learning:** Found that JavaScript-driven animations (like drawing on a `<canvas>`) are inherently immune to standard CSS `@media (prefers-reduced-motion: reduce)` rules that globally kill CSS transitions and keyframe animations. Users who request reduced motion at the OS level to avoid vestibular discomfort would still experience continuous particle animations.
 **Action:** Always verify `window.matchMedia('(prefers-reduced-motion: reduce)').matches` in JavaScript before instantiating heavy/continuous visual animations on the canvas, and hide the canvas element if the user prefers reduced motion.
+
+## 2024-05-07 - Mobile Menu Keyboard Accessibility
+**Learning:** For custom mobile menus, ensuring users can navigate entirely with a keyboard is critical. While making the menu toggle focusable and interactive is a good start, providing a way to close the menu efficiently (like pressing the 'Escape' key) and restoring focus to the triggering element prevents users from losing their place on the page, especially those using screen readers or relying solely on keyboard navigation.
+**Action:** Implemented an 'Escape' keydown event listener on the document that checks if the mobile menu is active. If so, it closes the menu, updates the `aria-expanded` state, and programmatically returns focus to the toggle button.
