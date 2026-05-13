@@ -4,3 +4,7 @@
 ## 2024-05-10 - Canvas Animations and prefers-reduced-motion
 **Learning:** Found that JavaScript-driven animations (like drawing on a `<canvas>`) are inherently immune to standard CSS `@media (prefers-reduced-motion: reduce)` rules that globally kill CSS transitions and keyframe animations. Users who request reduced motion at the OS level to avoid vestibular discomfort would still experience continuous particle animations.
 **Action:** Always verify `window.matchMedia('(prefers-reduced-motion: reduce)').matches` in JavaScript before instantiating heavy/continuous visual animations on the canvas, and hide the canvas element if the user prefers reduced motion.
+
+## 2024-05-13 - Custom Mobile Menus Need Escape Hatch
+**Learning:** Custom mobile menus in this app often lack keyboard accessibility. Users relying on keyboards need an intuitive way to close overlay menus without tabbing through all options.
+**Action:** Always implement an 'Escape' keydown listener that removes active classes, updates `aria-expanded="false"`, and restores focus to the menu toggle button.
