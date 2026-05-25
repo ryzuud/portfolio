@@ -1,0 +1,4 @@
+node_modules/
+pnpm-lock.yaml
+test_a11y.js
+server.log
