@@ -4,3 +4,7 @@
 ## 2024-05-10 - Canvas Animations and prefers-reduced-motion
 **Learning:** Found that JavaScript-driven animations (like drawing on a `<canvas>`) are inherently immune to standard CSS `@media (prefers-reduced-motion: reduce)` rules that globally kill CSS transitions and keyframe animations. Users who request reduced motion at the OS level to avoid vestibular discomfort would still experience continuous particle animations.
 **Action:** Always verify `window.matchMedia('(prefers-reduced-motion: reduce)').matches` in JavaScript before instantiating heavy/continuous visual animations on the canvas, and hide the canvas element if the user prefers reduced motion.
+
+## 2024-11-20 - Ensure decorative visual elements don't confuse screen readers and dynamic ARIA navigation
+**Learning:** Decorative text elements, like a simulated terminal window, expose meaningless syntax to screen readers (e.g., "$ cat file.txt") causing confusion. Also, purely visual scrollspys need dynamic `aria-current` updates to accurately reflect context for screen reader users, and custom mobile menus need `Escape` key support to be fully keyboard accessible.
+**Action:** Used `aria-hidden="true"` on the wrapper of the decorative terminal. Updated scrollspy to dynamically set `aria-current="true"` on the active navigation item and implemented a `keydown` listener to close the mobile menu on 'Escape' and return focus appropriately.
