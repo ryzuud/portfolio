@@ -408,6 +408,9 @@ function initNavbar() {
             link.classList.remove('active');
             if (link.getAttribute('href') === `#${current}`) {
                 link.classList.add('active');
+                link.setAttribute('aria-current', 'true');
+            } else {
+                link.removeAttribute('aria-current');
             }
         });
     });
@@ -428,6 +431,15 @@ function initNavbar() {
             linksList.classList.remove('active');
             toggle.setAttribute('aria-expanded', 'false');
         });
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && linksList.classList.contains('active')) {
+            toggle.classList.remove('active');
+            linksList.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.focus();
+        }
     });
 }
 
