@@ -4,3 +4,6 @@
 ## 2024-05-10 - Canvas Animations and prefers-reduced-motion
 **Learning:** Found that JavaScript-driven animations (like drawing on a `<canvas>`) are inherently immune to standard CSS `@media (prefers-reduced-motion: reduce)` rules that globally kill CSS transitions and keyframe animations. Users who request reduced motion at the OS level to avoid vestibular discomfort would still experience continuous particle animations.
 **Action:** Always verify `window.matchMedia('(prefers-reduced-motion: reduce)').matches` in JavaScript before instantiating heavy/continuous visual animations on the canvas, and hide the canvas element if the user prefers reduced motion.
+## 2024-05-15 - Scrollspy and Mobile Menu Accessibility
+**Learning:** Found that scrollspy nav elements lacking dynamic `aria-current` updates provide no context for screen reader users when content scrolls. Also found the mobile menu lacked an Escape key handler, trapping keyboard users.
+**Action:** Implemented dynamic `aria-current="true"` assignment matching the `.active` class toggle in scroll event listeners. Added an event listener mapped to `Escape` that closes the menu state and explicitly restores `.focus()` back to the triggering menu toggle element.
