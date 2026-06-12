@@ -406,8 +406,10 @@ function initNavbar() {
 
         navLinks.forEach(link => {
             link.classList.remove('active');
+            link.removeAttribute('aria-current');
             if (link.getAttribute('href') === `#${current}`) {
                 link.classList.add('active');
+                link.setAttribute('aria-current', 'true');
             }
         });
     });
@@ -420,6 +422,16 @@ function initNavbar() {
         const isActive = toggle.classList.toggle('active');
         linksList.classList.toggle('active');
         toggle.setAttribute('aria-expanded', isActive);
+    });
+
+    // Close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && linksList.classList.contains('active')) {
+            toggle.classList.remove('active');
+            linksList.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.focus();
+        }
     });
 
     navLinks.forEach(link => {
