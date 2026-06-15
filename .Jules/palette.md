@@ -4,3 +4,7 @@
 ## 2024-05-10 - Canvas Animations and prefers-reduced-motion
 **Learning:** Found that JavaScript-driven animations (like drawing on a `<canvas>`) are inherently immune to standard CSS `@media (prefers-reduced-motion: reduce)` rules that globally kill CSS transitions and keyframe animations. Users who request reduced motion at the OS level to avoid vestibular discomfort would still experience continuous particle animations.
 **Action:** Always verify `window.matchMedia('(prefers-reduced-motion: reduce)').matches` in JavaScript before instantiating heavy/continuous visual animations on the canvas, and hide the canvas element if the user prefers reduced motion.
+
+## 2024-05-24 - Screen Reader Compatibility for Decorative Punctuation in Simulated Elements
+**Learning:** Purely decorative pseudo-UI elements (like simulated terminal prompts `$` or typewriter prefixes `>`) inside wrappers with meaningful dynamic content get read aloud by screen readers, confusing the user and breaking the immersion of the real text.
+**Action:** Always apply `aria-hidden="true"` specifically to the decorative inner spanning elements rather than the parent wrapper to avoid hiding valid dynamic content from assistive technologies.
