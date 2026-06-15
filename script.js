@@ -529,10 +529,15 @@ document.addEventListener('DOMContentLoaded', () => {
         canvas.style.display = 'none'; // Hide canvas if not used
     }
 
+    // Secure language restoration
+    let savedLang = localStorage.getItem('portfolio-lang');
+    if (!savedLang || !translations[savedLang]) {
+        savedLang = 'fr';
+    }
+
     // Typewriter
     const typewriterEl = document.getElementById('typewriter');
     if (typewriterEl) {
-        const savedLang = localStorage.getItem('portfolio-lang') || 'fr';
         window.activeTypewriter = new Typewriter(
             typewriterEl,
             typewriterTexts[savedLang],
@@ -548,8 +553,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Restore saved language
-    const savedLang = localStorage.getItem('portfolio-lang');
-    if (savedLang && savedLang !== 'fr') {
+    if (savedLang !== 'fr') {
         setLanguage(savedLang);
     }
 
