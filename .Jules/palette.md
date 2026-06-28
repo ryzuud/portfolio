@@ -4,3 +4,6 @@
 ## 2024-05-10 - Canvas Animations and prefers-reduced-motion
 **Learning:** Found that JavaScript-driven animations (like drawing on a `<canvas>`) are inherently immune to standard CSS `@media (prefers-reduced-motion: reduce)` rules that globally kill CSS transitions and keyframe animations. Users who request reduced motion at the OS level to avoid vestibular discomfort would still experience continuous particle animations.
 **Action:** Always verify `window.matchMedia('(prefers-reduced-motion: reduce)').matches` in JavaScript before instantiating heavy/continuous visual animations on the canvas, and hide the canvas element if the user prefers reduced motion.
+## 2024-06-28 - Improve accessibility of navigation menu
+**Learning:** Adding `aria-current="page"` to active links in a single page navigation (like scrollspy) gives a better context to screen reader users than only visually highlighting the active link. Also providing a keyboard accessible way (Escape key) to dismiss custom mobile menus is very important.
+**Action:** Always check `Escape` dismissability and focus return when building custom modal-like interactive elements such as mobile menus, and dynamically update `aria-current` state in javascript when active navigation links change visually.
