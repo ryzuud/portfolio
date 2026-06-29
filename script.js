@@ -422,6 +422,15 @@ function initNavbar() {
         toggle.setAttribute('aria-expanded', isActive);
     });
 
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && toggle.classList.contains('active')) {
+            toggle.classList.remove('active');
+            linksList.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.focus();
+        }
+    });
+
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             toggle.classList.remove('active');
