@@ -4,3 +4,6 @@
 ## 2024-05-10 - Canvas Animations and prefers-reduced-motion
 **Learning:** Found that JavaScript-driven animations (like drawing on a `<canvas>`) are inherently immune to standard CSS `@media (prefers-reduced-motion: reduce)` rules that globally kill CSS transitions and keyframe animations. Users who request reduced motion at the OS level to avoid vestibular discomfort would still experience continuous particle animations.
 **Action:** Always verify `window.matchMedia('(prefers-reduced-motion: reduce)').matches` in JavaScript before instantiating heavy/continuous visual animations on the canvas, and hide the canvas element if the user prefers reduced motion.
+## 2024-03-24 - Custom Mobile Menu Escape Navigation
+**Learning:** Custom mobile menus built with standard `div`/`ul` elements instead of native `<dialog>` or `<nav>` elements often trap keyboard users if they do not include an explicit 'Escape' key listener to close the overlay.
+**Action:** Always add a global or document-level `keydown` listener that checks for `e.key === 'Escape'` when custom overlays are active. Importantly, closing the overlay must return programmatic focus (`.focus()`) to the trigger button so the user doesn't lose their place on the page.
