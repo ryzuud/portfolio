@@ -4,3 +4,6 @@
 ## 2024-05-10 - Canvas Animations and prefers-reduced-motion
 **Learning:** Found that JavaScript-driven animations (like drawing on a `<canvas>`) are inherently immune to standard CSS `@media (prefers-reduced-motion: reduce)` rules that globally kill CSS transitions and keyframe animations. Users who request reduced motion at the OS level to avoid vestibular discomfort would still experience continuous particle animations.
 **Action:** Always verify `window.matchMedia('(prefers-reduced-motion: reduce)').matches` in JavaScript before instantiating heavy/continuous visual animations on the canvas, and hide the canvas element if the user prefers reduced motion.
+## 2024-07-05 - Keyboard Accessibility for Custom Mobile Menus
+**Learning:** Custom mobile menus often trap keyboard users if they do not provide a way to close the menu without tabbing through all links or using a mouse.
+**Action:** Ensure custom mobile menus are keyboard accessible by implementing an event listener allowing them to be closed with the 'Escape' key, and verify that focus correctly returns to the toggle button upon closing.
